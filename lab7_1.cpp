@@ -3,27 +3,18 @@
 
 using namespace std;
 
-string func1(string x){
-	int i = 0, L = x.size();
+string func1(string d){
+	int i = 0, L = d.size();
 	string y = "";
 	while(i < L){
-		y += x[L-i-1];
+		y += d[L-i-1];
 		i++;
 	}
 	return y;
 }
 
-string func2(string x){
-	int i = 0, L = x.size();
-	string y = "";
-	while(i < L){
-		y += toupper(x[i]);
-		i++;
-	}
-	return y;	
-}
 
-string func3(string x){
+string func2(string x){
 	int i = 0, L = x.size();
 	string y = "";
 	while(i < L){
@@ -33,9 +24,26 @@ string func3(string x){
 	return y;	
 }
 
+string func3(string x){
+	string A = func1(x);
+	string y = "";
+	x = func2(x);
+	A = func2(A);
+	if( x == A){
+		cout << "Yes" ;
+	}else{
+		cout << "No" ;
+	}
+	return y;
+}
+
+
+
 int main(){
-    cout >> "Input text: "
-    cout >> "Reversed text: "
-    cout >> "Palindrome: "
+	string text, y;
+    cout << "Input text: ";
+	cin >> text;
+    cout << "Reversed text: " << func1(text) << "\n" ;
+    cout << "Palindrome: " << func3(text)  ;
     return 0;
 }
